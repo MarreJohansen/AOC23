@@ -1,7 +1,7 @@
 def main():
     array = []
     y = 0
-    input = open("3.py/input1.txt").read().split("\n")
+    input = open("puzzle 3/input1.txt").read().split("\n")
     for line in input:
             array.append(list(line))
     checkDirections(array)
