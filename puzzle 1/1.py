@@ -4,24 +4,31 @@ def main():
     total = 0
     with open("puzzle 1/input.txt") as f:
         for line in f:
-            print(line)
+            listOfStartIndexes = {}
+            #print(line)
             for key in alphToNumb:
-                print(key)
+                #print(key)
                 if (key in line):
-                    print("ok")
-                    line = line.replace(key, alphToNumb.get(key))
+                    #print("ok")
+                    listOfStartIndexes[line.find(key)] = key
+                    #line = line.replace(key, alphToNumb.get(key))
+            sortedIndexes = dict(sorted(listOfStartIndexes.items()))
+            print(sortedIndexes)
+            for index in sortedIndexes:
+                word = sortedIndexes.get(index)
+                line = line.replace(word, alphToNumb.get(word))
+            print(line)
             total += int(loopy(line) + loopy(reversed(line)))
-            print(total)
+            #print(total)
     return total
 
 def loopy(line):
+    print(line)
     for i in line:
-        print(line)
-        print(i)
         if(i.isdigit()):
             return i
         
-def changeVal():
+#def changeVal():
     
 
 print(main())
